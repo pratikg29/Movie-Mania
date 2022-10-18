@@ -69,6 +69,8 @@ struct Movie: Decodable, Identifiable, Hashable {
         return ratingText
     }
     
+    
+    
     var scoreText: String {
         guard ratingText.count > 0 else {
             return "n/a"
@@ -116,8 +118,8 @@ struct Movie: Decodable, Identifiable, Hashable {
     
 }
 
-struct MovieGenre: Decodable {
-    
+struct MovieGenre: Decodable, Identifiable {
+    var id: String { name }
     let name: String
 }
 

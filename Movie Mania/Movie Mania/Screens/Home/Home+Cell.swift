@@ -84,7 +84,6 @@ struct PosterPlaceHolderCell: View {
     }
 }
 
-
 struct MovieCell_Previews: PreviewProvider {
     static var previews: some View {
         MoviePosterCell(movie: Movie.stubbedMovie)

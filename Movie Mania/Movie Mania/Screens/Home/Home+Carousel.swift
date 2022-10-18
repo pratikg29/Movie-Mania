@@ -14,7 +14,7 @@ struct PosterCarouselView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(type.titleString)
-                .font(.system(size: 30, weight: .semibold, design: .rounded))
+                .font(.system(size: 25, weight: .semibold, design: .rounded))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
             

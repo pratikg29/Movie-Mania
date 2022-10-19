@@ -5,7 +5,7 @@
 //  Created by Pratik on 17/10/22.
 //
 
-import Foundation
+import SwiftUI
 
 struct MovieResponse: Decodable {
     
@@ -69,7 +69,9 @@ struct Movie: Decodable, Identifiable, Hashable {
         return ratingText
     }
     
-    
+    var ratingProgress: CGFloat {
+        voteAverage / 10
+    }
     
     var scoreText: String {
         guard ratingText.count > 0 else {

@@ -128,6 +128,32 @@ extension MovieDetailScreen {
                 }
                 
                 Spacer()
+                
+                HStack {
+                    ForEach(0..<5) { _ in
+                        Image(systemName: "star")
+                            .font(.title)
+                            .foregroundColor(.yellow)
+                    }
+                }
+                .overlay {
+                    GeometryReader { geo in
+                        HStack {
+                            ForEach(0..<5) { _ in
+                                Image(systemName: "star.fill")
+                                    .font(.title)
+                                    .foregroundColor(.yellow)
+                            }
+                        }
+                        .mask {
+                            HStack {
+                                Rectangle()
+                                    .frame(width: geo.size.width * movie.ratingProgress, alignment: .leading)
+                                Spacer(minLength: 0)
+                            }
+                        }
+                    }
+                }
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
@@ -137,11 +163,88 @@ extension MovieDetailScreen {
             )
         }
     }
+    
+    struct CraditsView: View {
+        let movie: Movie
+        var body: some View {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Starring")
+                        .font(.system(.headline, design: .rounded))
+                    
+                    if movie.cast != nil {
+                        VStack(alignment: .leading) {
+                            ForEach(movie.cast!) { star in
+                                Text(star.name)
+                            }
+                        }
+                    } else {
+                        Text("Fetching Data")
+                            .redacted(reason: .placeholder)
+                    }
+//                    movie.cast.map { stars in
+//                        VStack(alignment: .leading) {
+//                            ForEach(stars) { star in
+//                                Text(star.name)
+//                            }
+//                        }
+//                    }
+                }
+                
+                Spacer(minLength: 0)
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    if movie.directors != nil {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(movie.directors!.count > 1 ? "Directors" : "Director")
+                                .font(.system(.headline, design: .rounded))
+                            
+                            VStack(alignment: .leading) {
+                                ForEach(movie.directors!) { director in
+                                    Text(director.name)
+                                }
+                            }
+                        }
+                    }
+                    
+                    if movie.producers != nil {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(movie.producers!.count > 1 ? "Producers" : "Producer")
+                                .font(.system(.headline, design: .rounded))
+                            
+                            VStack(alignment: .leading) {
+                                ForEach(movie.producers!) { producer in
+                                    Text(producer.name)
+                                }
+                            }
+                        }
+                    }
+                    
+                    if movie.screenWriters != nil {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(movie.screenWriters!.count > 1 ? "Screen Writers" : "Screen Writer")
+                                .font(.system(.headline, design: .rounded))
+                            
+                            VStack(alignment: .leading) {
+                                ForEach(movie.screenWriters!) { writer in
+                                    Text(writer.name)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.top, 10)
+        }
+    }
 }
 
 struct My_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailScreen.PosterDetailView(movie: Movie.stubbedMovie)
-            .padding(.horizontal)
+        VStack {
+            MovieDetailScreen.PosterDetailView(movie: Movie.stubbedMovie)
+            MovieDetailScreen.CraditsView(movie: Movie.stubbedMovie)
+        }
+        .padding(.horizontal)
     }
 }

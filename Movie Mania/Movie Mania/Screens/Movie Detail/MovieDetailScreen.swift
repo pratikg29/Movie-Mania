@@ -12,17 +12,19 @@ struct MovieDetailScreen: View {
     @StateObject private var detailViewModel = MovieDetailState()
     
     var body: some View {
-        VStack {
-            if detailViewModel.movie != nil {
-                HeaderView(movie: detailViewModel.movie!)
-                PosterDetailView(movie: detailViewModel.movie!)
-                
-                Spacer()
-            } else {
-                Text("Data fetching...")
+        ScrollView {
+            VStack {
+                if detailViewModel.movie != nil {
+                    HeaderView(movie: detailViewModel.movie!)
+                    PosterDetailView(movie: detailViewModel.movie!)
+                    CraditsView(movie: detailViewModel.movie!)
+                    Spacer()
+                } else {
+                    Text("Data fetching...")
+                }
             }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
         .onAppear {
             detailViewModel.loadMovie(id: movieId)
             

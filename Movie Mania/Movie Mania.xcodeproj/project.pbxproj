@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303E0A06293CFFD400700A63 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E0A05293CFFD400700A63 /* CarouselView.swift */; };
 		30A5857F28FF051100051C2E /* MovieDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5857E28FF051100051C2E /* MovieDetailScreen.swift */; };
 		30A5858128FF060E00051C2E /* MovieDetail+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5858028FF060E00051C2E /* MovieDetail+Views.swift */; };
 		30A5858428FF097800051C2E /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5858328FF097800051C2E /* PlaceHolderView.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		303E0A05293CFFD400700A63 /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		30A5857E28FF051100051C2E /* MovieDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailScreen.swift; sourceTree = "<group>"; };
 		30A5858028FF060E00051C2E /* MovieDetail+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetail+Views.swift"; sourceTree = "<group>"; };
 		30A5858328FF097800051C2E /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				30A5858328FF097800051C2E /* PlaceHolderView.swift */,
+				303E0A05293CFFD400700A63 /* CarouselView.swift */,
 			);
 			path = "Common Views";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				30BF2B8528FDC67D00A3E1C7 /* Home+Cell.swift in Sources */,
 				30BF2B8D28FDD29B00A3E1C7 /* MovieListState.swift in Sources */,
 				30BF2B6E28FDBBD200A3E1C7 /* Movie.swift in Sources */,
+				303E0A06293CFFD400700A63 /* CarouselView.swift in Sources */,
 				30BF2B9028FDD32B00A3E1C7 /* Home+Carousel.swift in Sources */,
 				30BF2B7328FDBEDB00A3E1C7 /* MovieStore.swift in Sources */,
 				30BF2B7628FDC1E400A3E1C7 /* Utils.swift in Sources */,
@@ -423,6 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Movie Mania/Preview Content\"";
+				DEVELOPMENT_TEAM = VA3V23L23N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -451,6 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Movie Mania/Preview Content\"";
+				DEVELOPMENT_TEAM = VA3V23L23N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

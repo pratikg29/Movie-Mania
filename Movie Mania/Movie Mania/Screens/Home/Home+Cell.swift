@@ -40,7 +40,7 @@ struct MoviePosterCell: View {
 //                    .background(.regularMaterial)
 //            }
         }
-        .aspectRatio(9/16, contentMode: .fit)
+        .aspectRatio(9/14, contentMode: .fit)
         .clipShape(RoundedRectangle(cornerRadius: ThemeManager.posterCornerRadius, style: .continuous))
         .onAppear {
             self.imageLoader.loadImage(with: movie.posterURL)

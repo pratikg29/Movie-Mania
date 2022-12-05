@@ -31,6 +31,8 @@
 		30BF2B8E28FDD29B00A3E1C7 /* MovieSearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2B8B28FDD29B00A3E1C7 /* MovieSearchState.swift */; };
 		30BF2B9028FDD32B00A3E1C7 /* Home+Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2B8F28FDD32B00A3E1C7 /* Home+Carousel.swift */; };
 		30BF2B9328FDD56300A3E1C7 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2B9228FDD56300A3E1C7 /* ThemeManager.swift */; };
+		30DB828E293E598500931D3E /* Home+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DB828D293E598500931D3E /* Home+Category.swift */; };
+		30DB8292293E67C100931D3E /* CardsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8291293E67C100931D3E /* CardsStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		30BF2B8B28FDD29B00A3E1C7 /* MovieSearchState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSearchState.swift; sourceTree = "<group>"; };
 		30BF2B8F28FDD32B00A3E1C7 /* Home+Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+Carousel.swift"; sourceTree = "<group>"; };
 		30BF2B9228FDD56300A3E1C7 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		30DB828D293E598500931D3E /* Home+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+Category.swift"; sourceTree = "<group>"; };
+		30DB8291293E67C100931D3E /* CardsStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		30A5858228FF096000051C2E /* Common Views */ = {
 			isa = PBXGroup;
 			children = (
+				30DB8291293E67C100931D3E /* CardsStackView.swift */,
 				30A5858328FF097800051C2E /* PlaceHolderView.swift */,
 				303E0A05293CFFD400700A63 /* CarouselView.swift */,
 			);
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				30BF2B8228FDC59900A3E1C7 /* HomeScreen.swift */,
+				30DB828D293E598500931D3E /* Home+Category.swift */,
 				30BF2B8F28FDD32B00A3E1C7 /* Home+Carousel.swift */,
 				30BF2B8428FDC67D00A3E1C7 /* Home+Cell.swift */,
 			);
@@ -292,6 +298,8 @@
 				30BF2B8328FDC59900A3E1C7 /* HomeScreen.swift in Sources */,
 				30BF2B8528FDC67D00A3E1C7 /* Home+Cell.swift in Sources */,
 				30BF2B8D28FDD29B00A3E1C7 /* MovieListState.swift in Sources */,
+				30DB828E293E598500931D3E /* Home+Category.swift in Sources */,
+				30DB8292293E67C100931D3E /* CardsStackView.swift in Sources */,
 				30BF2B6E28FDBBD200A3E1C7 /* Movie.swift in Sources */,
 				303E0A06293CFFD400700A63 /* CarouselView.swift in Sources */,
 				30BF2B9028FDD32B00A3E1C7 /* Home+Carousel.swift in Sources */,

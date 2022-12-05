@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Category: Int, Identifiable, CaseIterable {
+enum Category: Int, Identifiable, CaseIterable, Equatable {
     case nowPlaying, popular, upComming, topRated
     
     var id: Int { rawValue }
@@ -41,36 +41,26 @@ enum Category: Int, Identifiable, CaseIterable {
 
 struct TestView: View {
     @State private var isExpanded: Bool = false
-    @State private var selectedCategory: Category = .nowPlaying
+    @State private var selectedCategory: Category? = nil
     @State private var categories: [Category] = Category.allCases
-    @Namespace var namespace
     
     var body: some View {
         ZStack {
-            Color(white: 0.95)
-                .ignoresSafeArea()
-                .onTapGesture {
-                    withAnimation {
-                        isExpanded.toggle()
-                    }
-                }
             CardsStackView(isExpanded: $isExpanded,
                            selection: $selectedCategory,
                            items: $categories) { category in
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(category.color)
                     .aspectRatio(9/11, contentMode: .fit)
-                //                .opacity(0.5)
-                
             }
             .frame(width: 250)
         }
     }
 }
 
-struct CardsStackView<Content: View, T: Identifiable>: View {
+struct CardsStackView<Content: View, T: Identifiable & Equatable>: View {
     @Binding var isExpanded: Bool
-    @Binding var selection: T
+    @Binding var selection: T?
     @Binding var items: [T]
     var content: (T) -> Content
     
@@ -78,23 +68,26 @@ struct CardsStackView<Content: View, T: Identifiable>: View {
         ZStack {
             ForEach(Array(items.reversed().enumerated()), id: \.element.id) { index, item in
                 content(item)
-                    .scaleEffect(1 - (CGFloat(items.count - index) * 0.05))
+                    .scaleEffect(getScale(for: index, item: item))
                     .rotation3DEffect(.degrees(isExpanded ? -15 : 0), axis: (1, 0, 0))
-                    .offset(y: CGFloat(index) * (isExpanded ? 80 : 20))
+                    .offset(y: getOffset(for: index, item: item))
                     .shadow(radius: 20)
                     .onTapGesture {
                         guard isExpanded else { return }
-                        withAnimation {
-                            selection = item
+                        withAnimation(.easeInOut) {
+                            if selection != item {
+                                selection = item
+                            } else {
+                                selection = nil
+                            }
                         }
                     }
             }
-            
-            
         }
         .gesture(
             DragGesture()
                 .onChanged({ value in
+                    guard selection == nil else { return }
                     if value.translation.height < 0 {
                         withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.5)) {
                             isExpanded = false
@@ -106,6 +99,30 @@ struct CardsStackView<Content: View, T: Identifiable>: View {
                     }
                 })
         )
+    }
+    
+    private func getOffset(for index: Int, item: T) -> CGFloat {
+        if (selection != nil) {
+            if (selection == item) {
+                return CGFloat(index) * (isExpanded ? 80 : 20) - 100
+            } else {
+                return CGFloat(index) * (isExpanded ? 80 : 20)
+            }
+        } else {
+            return CGFloat(index) * (isExpanded ? 80 : 20)
+        }
+    }
+    
+    private func getScale(for index: Int, item: T) -> CGFloat {
+        if (selection != nil) {
+            if (selection == item) {
+                return 1 - (CGFloat(items.count - index) * 0.05) + 0.1
+            } else {
+                return 1 - (CGFloat(items.count - index) * 0.05)
+            }
+        } else {
+            return 1 - (CGFloat(items.count - index) * 0.05)
+        }
     }
 }
 

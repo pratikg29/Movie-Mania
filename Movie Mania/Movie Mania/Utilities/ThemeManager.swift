@@ -8,6 +8,5 @@
 import SwiftUI
 
 class ThemeManager {
-    
-    static let posterCornerRadius: CGFloat = 15
+    static let posterCornerRadius: CGFloat = 25
 }

@@ -12,6 +12,7 @@ struct PosterCarouselView: View {
     @StateObject private var viewModel = CarouselModel()
     @State private var currentIndex: Int = 0
     @State private var selectedImage: UIImage = UIImage(named: "placeholderPoster")!
+    @State private var fadeOut = false
     
     var body: some View {
         GeometryReader { bounds in
@@ -20,8 +21,9 @@ struct PosterCarouselView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: bounds.size.width, height: bounds.size.height, alignment: .center)
-                    .overlay(.ultraThinMaterial)
-                    .animation(.easeInOut, value: currentIndex)
+                    .opacity(fadeOut ? 0 : 1)
+                    .animation(.easeInOut(duration: 0.3), value: fadeOut)
+                    .overlay(.regularMaterial)
                 
                 if viewModel.movies != nil {
                     CarouselView(spacing: 50, trailingSpace: 150, index: $currentIndex, items: viewModel.movies!) { movie, index in
@@ -40,8 +42,14 @@ struct PosterCarouselView: View {
             }
             .onChange(of: currentIndex) { newValue in
                 guard viewModel.images.indices.contains(newValue) else { return }
-                withAnimation(.easeInOut) {
-                    selectedImage = viewModel.images[newValue]
+                self.fadeOut.toggle()                 // 1) fade out
+                
+                // delayed appear
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    withAnimation {
+                        selectedImage = viewModel.images[newValue]    // 2) change image
+                        self.fadeOut.toggle()         // 3) fade in
+                    }
                 }
             }
             .onChange(of: viewModel.images) { newValue in

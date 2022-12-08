@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		303E0A06293CFFD400700A63 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E0A05293CFFD400700A63 /* CarouselView.swift */; };
+		304E76C52941B70800C186BE /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E76C42941B70800C186BE /* TestingView.swift */; };
 		30A5857F28FF051100051C2E /* MovieDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5857E28FF051100051C2E /* MovieDetailScreen.swift */; };
 		30A5858128FF060E00051C2E /* MovieDetail+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5858028FF060E00051C2E /* MovieDetail+Views.swift */; };
 		30A5858428FF097800051C2E /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5858328FF097800051C2E /* PlaceHolderView.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		303E0A05293CFFD400700A63 /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		304E76C42941B70800C186BE /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		30A5857E28FF051100051C2E /* MovieDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailScreen.swift; sourceTree = "<group>"; };
 		30A5858028FF060E00051C2E /* MovieDetail+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetail+Views.swift"; sourceTree = "<group>"; };
 		30A5858328FF097800051C2E /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				30DB8291293E67C100931D3E /* CardsStackView.swift */,
 				30A5858328FF097800051C2E /* PlaceHolderView.swift */,
 				303E0A05293CFFD400700A63 /* CarouselView.swift */,
+				304E76C42941B70800C186BE /* TestingView.swift */,
 			);
 			path = "Common Views";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				30BF2B7F28FDC53B00A3E1C7 /* Movie+Moc.swift in Sources */,
 				30BF2B8E28FDD29B00A3E1C7 /* MovieSearchState.swift in Sources */,
 				30BF2B9328FDD56300A3E1C7 /* ThemeManager.swift in Sources */,
+				304E76C52941B70800C186BE /* TestingView.swift in Sources */,
 				30BF2B6128FDBB5800A3E1C7 /* ContentView.swift in Sources */,
 				30BF2B8728FDC95F00A3E1C7 /* ImageLoader.swift in Sources */,
 				30A5857F28FF051100051C2E /* MovieDetailScreen.swift in Sources */,
